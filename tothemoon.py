@@ -150,7 +150,8 @@ async def on_message(message):
         contents = contents.split(' ')
         crypto = contents[-2].strip()
         money = contents[-1].strip()
-        await message.channel.send(parsePriceJson(getPrice(crypto, money), money))     
+        embedVar = discord.Embed(title="PRIX ACTUEL :", description="\u200B" + parsePriceJson(getPrice(crypto, money), money), color=0xcf00ff)
+        await message.channel.send(embed=embedVar)     
 
     #<-- Foxy the fox command reporté -->
 
@@ -193,7 +194,7 @@ async def on_message(message):
         await message.channel.send(embed=embedVar)
 
     if message.content.startswith(('!coucou')):
-        embedVar = discord.Embed(title="Ta gueule femme", description="\u200B", color=0xcf00ff)
+        embedVar = discord.Embed(title="Ta gueule ", description="\u200B", color=0xcf00ff)
         embedVar.set_footer(text="© ESILV")
         embedVar.set_image(url="https://i.imgflip.com/9ehk.jpg")
 
@@ -206,7 +207,10 @@ async def on_message(message):
     if message.content.startswith('!quiz'):
 
         qs, answer = get_question()
-        await message.channel.send(qs)
+        embedVar = discord.Embed(title="QUESTIONS :", description="\u200B" + qs, color=0xcf00ff)
+        await message.channel.send(embed=embedVar)
+
+
 
         def check(m):
             return m.author == message.author and m.content.isdigit() 
@@ -214,11 +218,11 @@ async def on_message(message):
         try:
             guess = await client.wait_for('message', check=check, timeout=9.0)
         except asyncio.TimeoutError:
-            embedVar = discord.Embed(title="Trop lente bb", description="\u200B", color=0xcf00ff)
+            embedVar = discord.Embed(title="Trop lente ", description="\u200B", color=0xcf00ff)
             embedVar.set_footer(text="© JM | ESILV")
             return await message.channel.send(embed=embedVar)
         if int(guess.content) == answer:
-            embedVar = discord.Embed(title="Bien joué narvalo", description="\u200B", color=0xcf00ff)
+            embedVar = discord.Embed(title="Bien joué ", description="\u200B", color=0xcf00ff)
             embedVar.set_footer(text="© JM | ESILV")
             await message.channel.send(embed=embedVar)
         else:
@@ -228,4 +232,4 @@ async def on_message(message):
     
     
 
-client.run("OTUzMDQwNjkwNzAxNTUzNzE1.Yi-yTw.5tycXffa46M_5cord09MhT3B2i4")
+client.run("")
