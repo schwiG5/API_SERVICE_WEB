@@ -221,6 +221,22 @@ async def on_message(message):
             embedVar = discord.Embed(title="Trop lente ", description="\u200B", color=0xcf00ff)
             embedVar.set_footer(text="© JM | ESILV")
             return await message.channel.send(embed=embedVar)
+        if  int(guess.content) == '33':
+            embedVar = discord.Embed(title="T'es un petit shinobi toi ", description="\u200B", color=0xcf00ff)
+            embedVar.set_footer(text="© JM | ESILV")
+            await message.channel.send(embed=embedVar)
+        if int(guess.id) == 34:
+            embedVar = discord.Embed(title="Bankaiiiii !!", description="\u200B", color=0xcf00ff)
+            embedVar.set_footer(text="© JM | ESILV")
+            await message.channel.send(embed=embedVar)
+        if int(guess.id) == 35:
+            embedVar = discord.Embed(title="ah oe genre le pouvoir de l'amitié ", description="\u200B", color=0xcf00ff)
+            embedVar.set_footer(text="© JM | ESILV")
+            await message.channel.send(embed=embedVar)
+        if int(guess.id) == 36:
+            embedVar = discord.Embed(title="Rien à dire, t'es un V2V ", description="\u200B", color=0xcf00ff)
+            embedVar.set_footer(text="© JM | ESILV")
+            await message.channel.send(embed=embedVar)
         if int(guess.content) == answer:
             embedVar = discord.Embed(title="Bien joué ", description="\u200B", color=0xcf00ff)
             embedVar.set_footer(text="© JM | ESILV")
@@ -232,4 +248,4 @@ async def on_message(message):
     
     
 
-client.run("")
+client.run("OTUyODY1OTMxMzY3OTQ0MjAy.Yi8PjQ.fNrpnNSse5s2r56xvayWPgFjwyQ")
