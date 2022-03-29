@@ -1,11 +1,11 @@
+from cgitb import text
 from email import message
+from multiprocessing.connection import wait
+from turtle import color
 from urllib import response
-import discord
 from discord.ext import commands
-import requests
+import requests, json, asyncio, datetime, discord,textwrap
 from pycoingecko import CoinGeckoAPI
-import asyncio
-import json
 
 
 
@@ -19,7 +19,7 @@ bot = commands.Bot(command_prefix = "!", description = "j'aime les femmes")
 @client.event
 async def on_ready():
     print('Logged in as {0.user}'.format(client))
-    print('BOT ONLINE BABYYY')
+    await schedule_daily_message()
 
 coinsInDict = {
     'Lebitcoin' : 'btc',
@@ -113,8 +113,36 @@ def parsePriceJson(priceJson, money):
     
     return str
 
+
+async def schedule_daily_message():
+	
+    embedVar = discord.Embed(title="LISTE DES CRYPTOS DU MOMENTS", description="\u200B", color=0xcf00fc)
+    embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+    embedVar.add_field(name="SOL " + parsePriceJson(getPrice('solana', 'usd'), 'usd'),value ="https://coinmarketcap.com/currencies/solana/", inline=False)
+    embedVar.add_field(name="ETH "+ parsePriceJson(getPrice('ethereum', 'usd'), 'usd'),value="https://coinmarketcap.com/currencies/ethereum/", inline=False)
+    embedVar.add_field(name="BTC "+ parsePriceJson(getPrice('bitcoin', 'usd'), 'usd'),value="https://coinmarketcap.com/currencies/bitcoin/", inline=False)
+    embedVar.add_field(name="ADA "+ parsePriceJson(getPrice('cardano', 'usd'), 'usd'),value="https://coinmarketcap.com/currencies/cardano/", inline=False)
+    embedVar.add_field(name="LTC "+ parsePriceJson(getPrice('litecoin', 'usd'), 'usd'),value="https://coinmarketcap.com/currencies/litecoin/", inline=False)
+        
+    embedVar.set_footer(text="© Poutine | ESILV")
+
+    
+    now = datetime.datetime.now()
+
+    then = now.replace(hour=14, minute=30)
+    wait_time = (then-now).total_seconds()
+    await asyncio.sleep(wait_time)
+
+    channel = client.get_channel(953046740636934204)
+
+    await channel.send(embed=embedVar)
+
+
+
+
 @client.event
 async def on_message(message):
+        
     if message.author == client.user:
         return
     
@@ -248,4 +276,4 @@ async def on_message(message):
     
     
 
-client.run("OTUyODY1OTMxMzY3OTQ0MjAy.Yi8PjQ.fNrpnNSse5s2r56xvayWPgFjwyQ")
+client.run("fuxk")
