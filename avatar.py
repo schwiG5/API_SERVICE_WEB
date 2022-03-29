@@ -13,4 +13,4 @@ async def avatar(ctx, member: discord.Member):
     await ctx.send(embed=show_avatar)
 
 
-bot.run("OTUzMDQwNjkwNzAxNTUzNzE1.Yi-yTw.na_p5Xv15Co_GXYvhzKwpVVl-LI")
+bot.run("ton_token")
