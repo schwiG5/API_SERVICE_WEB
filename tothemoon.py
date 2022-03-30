@@ -7,13 +7,8 @@ from discord.ext import commands
 import requests, json, asyncio, datetime, discord,textwrap
 from pycoingecko import CoinGeckoAPI
 
-
-
-
-
 client = discord.Client()
 cg = CoinGeckoAPI()
-
 bot = commands.Bot(command_prefix = "!", description = "j'aime les femmes")
 
 @client.event
@@ -21,10 +16,8 @@ async def on_ready():
     print('Logged in as {0.user}'.format(client))
     await schedule_daily_message()
 
-coinsInDict = {
-    'Lebitcoin' : 'btc',
-    'Lether' : 'eth'
-}
+
+#<-- DICTIONNAIRES POUR BOT CRYPTO -->
 
 coinIdDict = {
     'Bitcoin' : 'bitcoin',
@@ -43,7 +36,6 @@ coinIdDict = {
     'Terra Luna' : 'terra-luna',
     'Basic Attention Token' : 'bat',
 }
-
 moneyIdDict = {
     'US Dollars' : 'usd',
     'Indian Rupees' : 'inr',
@@ -53,7 +45,6 @@ moneyIdDict = {
     'Canadian Dollar' : 'cad',
     'Australian Dollar' : 'aud'
 }
-
 moneySymbolDict = {
     'usd' : '$',
     'inr' : '₹',
@@ -64,8 +55,10 @@ moneySymbolDict = {
     'aud' : 'A$'
 }
 
+
 def getPrice(cryptoId, moneyId):
     return cg.get_price(ids=cryptoId, vs_currencies=moneyId)
+
 
 def get_question():
     qs = ''
@@ -85,22 +78,8 @@ def get_question():
     
     return(qs, answer)
 
-def getCommandList():
-    return """
-    VOICI LA LISTE DES COMMANDES : 
 
-    Le préfix pour utiliser le bot est : '!'
-
-    !commands -> Liste des commandes
-    !coinList -> Liste des cryptomonaies
-    !moneyList -> Liste des différentes monnaies disponibles 💵
-    !getPrice <cryptoId> <moneyId> -> Afficher la crypto et sa monnaie ➡️ 💵
-    !serverinfo pour les infos du channel
-    !quiz pour un quiz 
-    !coucou pour saluer notre bot
-    !foxy ou ! renard pour faire plaisir a foxy
-    """
-
+#<-- BOT CRYPTO ASKING JSON -->
 
 def parsePriceJson(priceJson, money):
     str = ''
@@ -113,6 +92,7 @@ def parsePriceJson(priceJson, money):
     
     return str
 
+#<-- MESSAGES AUTOMATIQUE -->
 
 async def schedule_daily_message():
 	
@@ -137,8 +117,7 @@ async def schedule_daily_message():
 
     await channel.send(embed=embedVar)
 
-
-
+#<-- LISTE DES COMMANDES -->
 
 @client.event
 async def on_message(message):
@@ -165,11 +144,14 @@ async def on_message(message):
 
 
     if message.content.startswith('!commands'):
-        embedVar = discord.Embed(title="LE BOT QUI T'EMENE SUR LA LUNE", description="\u200B", color=0xcf00ff)
+        embedVar = discord.Embed(title="🚀 LE BOT QUI T'EMENE SUR LA LUNE", description="\u200B", color=0xcf00ff)
         embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
-        embedVar.add_field(name="Ce bot à pour objectif d'être un bot educatif !\nL'objectif de ce bot et de pouvoir suivre le cours des différentes crypto !", value="\u200B", inline=False)
-        embedVar.add_field(name="Pour voir les différentes cryptos :\n`!crypto` ou `!coin` fais `!renard` ou `!foxy` pour une surprise", value="\u200B", inline=False)
-        embedVar.set_footer(text="© McFly | ESILV")
+        embedVar.add_field(name="Bienvenue sur notre bot !", value="\u200B", inline=False)
+        embedVar.add_field(name="Foxy et Moon sont deux de nos fidèles serviteurs ! \nChacun à ses propres commandes, vous verrez ils n'ont pas fini de vous suprendre !", value="\u200B", inline=False)
+        embedVar.add_field(name="\u200B", value="🌕🌙 **MOON**\n\n**Liste des cryptos :**\n!coin\n\n**Liste des monnaies :**\n!money\n\n**Pour connaître le cours d'une monnaie :**\n!getPrice <crypto> <monnaie>\n\n", inline=True)
+        embedVar.add_field(name="\u200B", value="🦊 **FOXY**\n\n**Les infos du serveur :**\n!serverinfo\n\n**Pour faire un quiz :**\n!quiz\n\n**Pour une surprise :**\n!coucou\n\n", inline=True)
+        embedVar.add_field(name="\u200B", value="\u200B", inline=False)
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
 
         await message.channel.send(embed=embedVar)
 
@@ -231,6 +213,8 @@ async def on_message(message):
 
     if message.author == client.user:
         return
+
+    #<-- QUIZZZ -->
 
     if message.content.startswith('!quiz'):
 
