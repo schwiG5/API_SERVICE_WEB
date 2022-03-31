@@ -88,14 +88,14 @@ def parsePriceJson(priceJson, money):
 
 
 async def btc_auto_msg(): 
-    for loop in range(0, 100):
+    for loop in range(0, 2):
         embedVar = discord.Embed(title="LE cours du Bitcoin", description="\u200B", color=0xcf00fc)
-        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.set_thumbnail(url="https://bitcoin.org/img/icons/opengraph.png?1648318071")
         embedVar.add_field(name="BTC "+ parsePriceJson(getPrice('bitcoin', 'usd'), 'usd'),value="\u200B", inline=False)
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(3600)
+            await asyncio.sleep(1)
 
             channel = client.get_channel(958790061254656051)
 
@@ -104,12 +104,12 @@ async def btc_auto_msg():
             break
         
         embedVar = discord.Embed(title="LE cours de l'Ethereum", description="\u200B", color=0xcf00fc)
-        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.set_thumbnail(url="https://images.youngplatform.com/coins/eth_light.png")
         embedVar.add_field(name="ETH "+ parsePriceJson(getPrice('ethereum', 'usd'), 'usd'),value="\u200B", inline=False)
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(0)
+            await asyncio.sleep(1)
 
             channel = client.get_channel(958790243627180032)
 
@@ -118,12 +118,12 @@ async def btc_auto_msg():
             break
 
         embedVar = discord.Embed(title="LE cours du Litecoin", description="\u200B", color=0xcf00fc)
-        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.set_thumbnail(url="https://static.comparerbitcoin.fr/wp-content/uploads/cours-du-litecoin.png")
         embedVar.add_field(name="LTC "+ parsePriceJson(getPrice('litecoin', 'usd'), 'usd'),value="\u200B", inline=False)
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(0)
+            await asyncio.sleep(1)
 
             channel = client.get_channel(958790625111732335)
 
@@ -132,12 +132,12 @@ async def btc_auto_msg():
             break
 
         embedVar = discord.Embed(title="LE cours du Dogecoin", description="\u200B", color=0xcf00fc)
-        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/200x200/74.png")
         embedVar.add_field(name="Ð"+ parsePriceJson(getPrice('dogecoin', 'usd'), 'usd'),value="\u200B", inline=False)
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(0)
+            await asyncio.sleep(1)
 
             channel = client.get_channel(958790725133295727)
 
@@ -146,12 +146,12 @@ async def btc_auto_msg():
             break
 
         embedVar = discord.Embed(title="LE cours du Cardano", description="\u200B", color=0xcf00fc)
-        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/c/c0/Cardano_Logo.jpg")
         embedVar.add_field(name="ADA"+ parsePriceJson(getPrice('cardano', 'usd'), 'usd'),value="\u200B", inline=False)
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(0)
+            await asyncio.sleep(1)
 
             channel = client.get_channel(958790833535057930)
 
@@ -165,7 +165,7 @@ async def btc_auto_msg():
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(0)
+            await asyncio.sleep(1)
 
             channel = client.get_channel(958790411583909958)
 
@@ -307,4 +307,6 @@ async def on_message(message):
             embedVar = discord.Embed(title="Mauvaise reponse ma belle", description="\u200B", color=0xcf00ff)
             embedVar.set_footer(text="© JM | ESILV")
             await message.channel.send(embed=embedVar)
-client.run("fuxk")
+
+
+client.run("OTUyODY1OTMxMzY3OTQ0MjAy.Yi8PjQ.q_VS_CSuJAYmVMirmqjk4FIW6Kw")
