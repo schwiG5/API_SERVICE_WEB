@@ -309,4 +309,5 @@ async def on_message(message):
             await message.channel.send(embed=embedVar)
 
 
-client.run("OTUyODY1OTMxMzY3OTQ0MjAy.Yi8PjQ.q_VS_CSuJAYmVMirmqjk4FIW6Kw")
+client.run("fuck")
+
