@@ -9,15 +9,12 @@ from pycoingecko import CoinGeckoAPI
 
 client = discord.Client()
 cg = CoinGeckoAPI()
-bot = commands.Bot(command_prefix = "!", description = "j'aime les femmes")
+client = commands.Bot(command_prefix = "!")
 
 @client.event
 async def on_ready():
     print('Logged in as {0.user}'.format(client))
-    await schedule_daily_message()
-
-
-#<-- DICTIONNAIRES POUR BOT CRYPTO -->
+    await btc_auto_msg()
 
 coinIdDict = {
     'Bitcoin' : 'bitcoin',
@@ -36,6 +33,7 @@ coinIdDict = {
     'Terra Luna' : 'terra-luna',
     'Basic Attention Token' : 'bat',
 }
+
 moneyIdDict = {
     'US Dollars' : 'usd',
     'Indian Rupees' : 'inr',
@@ -45,6 +43,7 @@ moneyIdDict = {
     'Canadian Dollar' : 'cad',
     'Australian Dollar' : 'aud'
 }
+
 moneySymbolDict = {
     'usd' : '$',
     'inr' : '₹',
@@ -55,10 +54,8 @@ moneySymbolDict = {
     'aud' : 'A$'
 }
 
-
 def getPrice(cryptoId, moneyId):
     return cg.get_price(ids=cryptoId, vs_currencies=moneyId)
-
 
 def get_question():
     qs = ''
@@ -78,9 +75,6 @@ def get_question():
     
     return(qs, answer)
 
-
-#<-- BOT CRYPTO ASKING JSON -->
-
 def parsePriceJson(priceJson, money):
     str = ''
         
@@ -92,39 +86,99 @@ def parsePriceJson(priceJson, money):
     
     return str
 
-#<-- MESSAGES AUTOMATIQUE -->
 
-async def schedule_daily_message():
-	
-    embedVar = discord.Embed(title="LISTE DES CRYPTOS DU MOMENTS", description="\u200B", color=0xcf00fc)
-    embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
-    embedVar.add_field(name="SOL " + parsePriceJson(getPrice('solana', 'usd'), 'usd'),value ="https://coinmarketcap.com/currencies/solana/", inline=False)
-    embedVar.add_field(name="ETH "+ parsePriceJson(getPrice('ethereum', 'usd'), 'usd'),value="https://coinmarketcap.com/currencies/ethereum/", inline=False)
-    embedVar.add_field(name="BTC "+ parsePriceJson(getPrice('bitcoin', 'usd'), 'usd'),value="https://coinmarketcap.com/currencies/bitcoin/", inline=False)
-    embedVar.add_field(name="ADA "+ parsePriceJson(getPrice('cardano', 'usd'), 'usd'),value="https://coinmarketcap.com/currencies/cardano/", inline=False)
-    embedVar.add_field(name="LTC "+ parsePriceJson(getPrice('litecoin', 'usd'), 'usd'),value="https://coinmarketcap.com/currencies/litecoin/", inline=False)
+async def btc_auto_msg(): 
+    for loop in range(0, 100):
+        embedVar = discord.Embed(title="LE cours du Bitcoin", description="\u200B", color=0xcf00fc)
+        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.add_field(name="BTC "+ parsePriceJson(getPrice('bitcoin', 'usd'), 'usd'),value="\u200B", inline=False)
+            
+        embedVar.set_footer(text="© Poutine | ESILV")
+        while True:
+            await asyncio.sleep(3600)
+
+            channel = client.get_channel(958790061254656051)
+
+            await channel.send(embed=embedVar)
+
+            break
         
-    embedVar.set_footer(text="© Poutine | ESILV")
+        embedVar = discord.Embed(title="LE cours de l'Ethereum", description="\u200B", color=0xcf00fc)
+        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.add_field(name="ETH "+ parsePriceJson(getPrice('ethereum', 'usd'), 'usd'),value="\u200B", inline=False)
+            
+        embedVar.set_footer(text="© Poutine | ESILV")
+        while True:
+            await asyncio.sleep(0)
 
-    
-    now = datetime.datetime.now()
+            channel = client.get_channel(958790243627180032)
 
-    then = now.replace(hour=14, minute=30)
-    wait_time = (then-now).total_seconds()
-    await asyncio.sleep(wait_time)
+            await channel.send(embed=embedVar)
 
-    channel = client.get_channel(953046740636934204)
+            break
 
-    await channel.send(embed=embedVar)
+        embedVar = discord.Embed(title="LE cours du Litecoin", description="\u200B", color=0xcf00fc)
+        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.add_field(name="LTC "+ parsePriceJson(getPrice('litecoin', 'usd'), 'usd'),value="\u200B", inline=False)
+            
+        embedVar.set_footer(text="© Poutine | ESILV")
+        while True:
+            await asyncio.sleep(0)
 
-#<-- LISTE DES COMMANDES -->
+            channel = client.get_channel(958790625111732335)
+
+            await channel.send(embed=embedVar)
+
+            break
+
+        embedVar = discord.Embed(title="LE cours du Dogecoin", description="\u200B", color=0xcf00fc)
+        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.add_field(name="Ð"+ parsePriceJson(getPrice('dogecoin', 'usd'), 'usd'),value="\u200B", inline=False)
+            
+        embedVar.set_footer(text="© Poutine | ESILV")
+        while True:
+            await asyncio.sleep(0)
+
+            channel = client.get_channel(958790725133295727)
+
+            await channel.send(embed=embedVar)
+
+            break
+
+        embedVar = discord.Embed(title="LE cours du Cardano", description="\u200B", color=0xcf00fc)
+        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.add_field(name="ADA"+ parsePriceJson(getPrice('cardano', 'usd'), 'usd'),value="\u200B", inline=False)
+            
+        embedVar.set_footer(text="© Poutine | ESILV")
+        while True:
+            await asyncio.sleep(0)
+
+            channel = client.get_channel(958790833535057930)
+
+            await channel.send(embed=embedVar)
+
+            break
+
+        embedVar = discord.Embed(title="LE cours du Solana", description="\u200B", color=0xcf00fc)
+        embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
+        embedVar.add_field(name="SOL " + parsePriceJson(getPrice('solana', 'usd'), 'usd'),value ="\u200B", inline=False)
+            
+        embedVar.set_footer(text="© Poutine | ESILV")
+        while True:
+            await asyncio.sleep(0)
+
+            channel = client.get_channel(958790411583909958)
+
+            await channel.send(embed=embedVar)
+
+            break
 
 @client.event
 async def on_message(message):
-        
+    
     if message.author == client.user:
         return
-    
+
     if message.content.startswith(('!coin', '!coinList', '!coinlist', '!crypto', '!cryptolist')):
         embedVar = discord.Embed(title="LISTE DES CRYPTOS DISPONIBLES", description="\u200B", color=0xcf00ff)
         embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
@@ -214,15 +268,11 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    #<-- QUIZZZ -->
-
     if message.content.startswith('!quiz'):
 
         qs, answer = get_question()
         embedVar = discord.Embed(title="QUESTIONS :", description="\u200B" + qs, color=0xcf00ff)
         await message.channel.send(embed=embedVar)
-
-
 
         def check(m):
             return m.author == message.author and m.content.isdigit() 
@@ -257,7 +307,4 @@ async def on_message(message):
             embedVar = discord.Embed(title="Mauvaise reponse ma belle", description="\u200B", color=0xcf00ff)
             embedVar.set_footer(text="© JM | ESILV")
             await message.channel.send(embed=embedVar)
-    
-    
-
 client.run("fuxk")
