@@ -41,7 +41,11 @@ Open your [**terminal**](https://doc.ubuntu-fr.org/terminal) and run this comman
 | **git clone**  | `git clone https://github.com/schwiG5/API_SERVICE_WEB`                                              | 
 
 
-After, at the end of the code, you need to change the Token of the bot and put yours.
+After, at the end of the code, you need to change the Token of the bot and put yours :
+
+```py
+client.run("Your_token_bot")
+```
 
 If you don't know how to create a bot on discord click [**here**](https://discordpy.readthedocs.io/en/stable/discord.html)
 
