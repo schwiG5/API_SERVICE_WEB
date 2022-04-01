@@ -12,9 +12,7 @@
 # Introduction 
 
 Hello guys so we are french students and we made a discord bot.
-
 If you have any questions, or if there are mistakes, please let us know.
-
 Our contacts are down bellow.
 
 ## The Bot 
@@ -51,7 +49,9 @@ If you don't know how to create a bot on discord click [**here**](https://discor
 
 When it's done, you have to run your terminal and once in the bot folder you need to run this command : 
 
-`py tothemoon.py`
+```py
+py tothemoon.py
+```
 
 To know all the commands of the bot write **!commands** or **!help** in any channel.
 
