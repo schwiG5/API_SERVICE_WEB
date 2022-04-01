@@ -1,4 +1,4 @@
-<img src="https://cdn.discordapp.com/attachments/715943284215775263/959415677863755776/giphy.gif"  alt="Full Example"/>
+<img src="https://cdn.discordapp.com/attachments/715943284215775263/959416835885903902/e426702edf874b181aced1e2fa5c6cde.gif"  alt="Full Example"/>
 
 ## Table of Contents
 
