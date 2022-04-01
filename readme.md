@@ -2,7 +2,6 @@
 
 - [Introduction](#introduction)
     - [The bot](#the-bot)
-- [Best Practices](#best-practices)
 - [Getting started](#getting-started)
     - [Prerequise](#prerequise)
     - [Setup](#setup)
@@ -10,7 +9,7 @@
     - [Contributors](#contributors)
     - [License & Copyright](#license--copyright)
 
-## Introduction 
+# Introduction 
 
 Hello guys so we are french students and we made a discord bot.
 
@@ -22,7 +21,7 @@ Our contacts are down bellow.
 
 The bot have many functions that we will let you discover.
 
-### Getting started 
+# Getting started 
 
 ## Prerequise
 
@@ -31,7 +30,7 @@ The bot have many functions that we will let you discover.
 - Make sure [**python3**](https://www.python.org/downloads/) is install 
 - That's all ! 
 
-### Setup 
+## Setup 
 
 At first, you need to __clone the project.__
 
@@ -55,7 +54,7 @@ To know all the commands of the bot write **!commands** or **!help** in any chan
 **Enjoy 🎉**
 
 
-### Contact US 
+# Contact US 
 
 ## Contributors
 
