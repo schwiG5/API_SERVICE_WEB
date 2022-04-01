@@ -1,3 +1,5 @@
+<img src="https://cdn.discordapp.com/attachments/205245036084985857/481213000540225550/full_example.gif"  alt="Full Example"/>
+
 ## Table of Contents
 
 - [Introduction](#introduction)
