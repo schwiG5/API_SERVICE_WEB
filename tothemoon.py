@@ -3,6 +3,7 @@ from email import message
 from multiprocessing.connection import wait
 from turtle import color
 from urllib import response
+from cryptoDict import moneySymbolDict, moneyIdDict, coinIdDict
 from discord.ext import commands
 import requests, json, asyncio, datetime, discord,textwrap
 from pycoingecko import CoinGeckoAPI
@@ -16,43 +17,6 @@ async def on_ready():
     print('Logged in as {0.user}'.format(client))
     await btc_auto_msg()
 
-coinIdDict = {
-    'Bitcoin' : 'bitcoin',
-    'Ethereum' : 'ethereum',
-    'Litecoin' : 'litecoin',
-    'Dogecoin' : 'dogecoin',
-    'Bitcoin Cash' : 'bitcoin-cash',
-    'Cardano' : 'cardano',
-    'Matic Network' : 'matic-network',
-    'Decentraland [MANA]' : 'decentraland',
-    'Gala' : 'gala',
-    'MBOX' : 'mobox',
-    'Avalanche': 'avalanche-2',
-    'Polkadot' : 'polkadot',
-    'Solana' : 'solana IAN FAUT INVESTIR CA VA PETER LA',
-    'Terra Luna' : 'terra-luna',
-    'Basic Attention Token' : 'bat',
-}
-
-moneyIdDict = {
-    'US Dollars' : 'usd',
-    'Indian Rupees' : 'inr',
-    'Euro' : 'eur',
-    'British Pound' : 'gbp',
-    'Japanese Yen' : 'jpy',
-    'Canadian Dollar' : 'cad',
-    'Australian Dollar' : 'aud'
-}
-
-moneySymbolDict = {
-    'usd' : '$',
-    'inr' : '₹',
-    'eur' : '€',
-    'gbp' : '£',
-    'jpy' : '¥',
-    'cad' : 'C$',
-    'aud' : 'A$'
-}
 
 def getPrice(cryptoId, moneyId):
     return cg.get_price(ids=cryptoId, vs_currencies=moneyId)
@@ -88,14 +52,14 @@ def parsePriceJson(priceJson, money):
 
 
 async def btc_auto_msg(): 
-    for loop in range(0, 2):
+    for loop in range(0, 100):
         embedVar = discord.Embed(title="LE cours du Bitcoin", description="\u200B", color=0xcf00fc)
         embedVar.set_thumbnail(url="https://bitcoin.org/img/icons/opengraph.png?1648318071")
         embedVar.add_field(name="BTC "+ parsePriceJson(getPrice('bitcoin', 'usd'), 'usd'),value="\u200B", inline=False)
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(1)
+            await asyncio.sleep(3600)
 
             channel = client.get_channel(958790061254656051)
 
@@ -109,7 +73,7 @@ async def btc_auto_msg():
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(1)
+            await asyncio.sleep(0)
 
             channel = client.get_channel(958790243627180032)
 
@@ -123,7 +87,7 @@ async def btc_auto_msg():
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(1)
+            await asyncio.sleep(0)
 
             channel = client.get_channel(958790625111732335)
 
@@ -137,7 +101,7 @@ async def btc_auto_msg():
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(1)
+            await asyncio.sleep(0)
 
             channel = client.get_channel(958790725133295727)
 
@@ -151,7 +115,7 @@ async def btc_auto_msg():
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(1)
+            await asyncio.sleep(0)
 
             channel = client.get_channel(958790833535057930)
 
@@ -165,7 +129,7 @@ async def btc_auto_msg():
             
         embedVar.set_footer(text="© Poutine | ESILV")
         while True:
-            await asyncio.sleep(1)
+            await asyncio.sleep(0)
 
             channel = client.get_channel(958790411583909958)
 
@@ -216,6 +180,21 @@ async def on_message(message):
         money = contents[-1].strip()
         embedVar = discord.Embed(title="PRIX ACTUEL :", description="\u200B" + parsePriceJson(getPrice(crypto, money), money), color=0xcf00ff)
         await message.channel.send(embed=embedVar)     
+
+    if message.content.startswith('!test'):
+        embedVar = discord.Embed(title="test images", description="\u200B", color=0xcf00ff)
+        embedVar.set_thumbnail(url="https://img5.goodfon.com/wallpaper/nbig/1/3c/bitcoin-btc-coin-fon-black-chiornyi.jpg")
+        embedVar.add_field(name="Test", value="\u200B", inline=False)
+        await message.channel.send(embed=embedVar)
+
+    #<-- Commandes clear --> 
+
+    if message.content.startswith('!clear'):
+        await message.channel.purge()
+    
+    if message.content.startswith('!avatar'):
+        member = discord.Member
+        await message.channel.send('{}'.format(member.avatar_url))
 
     #<-- Foxy the fox command reporté -->
 
@@ -307,6 +286,8 @@ async def on_message(message):
             embedVar = discord.Embed(title="Mauvaise reponse ma belle", description="\u200B", color=0xcf00ff)
             embedVar.set_footer(text="© JM | ESILV")
             await message.channel.send(embed=embedVar)
+
+
 
 
 client.run("fuck")
