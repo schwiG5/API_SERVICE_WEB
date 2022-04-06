@@ -7,6 +7,7 @@
 - [Getting started](#getting-started)
     - [Prerequise](#prerequise)
     - [Setup](#setup)
+    - [Cryptocurrency](#cryptocurrency)
 - [Contact US](#contact-us)
     - [Contributors](#contributors)
     - [License & Copyright](#license--copyright)
@@ -16,6 +17,8 @@
 Hello guys so we are french students and we made a discord bot.
 If you have any questions, or if there are mistakes, please let us know.
 Our contacts are down bellow.
+
+So we have to codes, the first one is tothemoon with all the mains functions and 2tothemoon with all the subfunctions
 
 ## The Bot 
 
@@ -28,6 +31,7 @@ The bot have many functions that we will let you discover.
 - First of all you need operating system.
 - [Git](https://doc.ubuntu-fr.org/git) must be installed ! 
 - Make sure [**python3**](https://www.python.org/downloads/) is install 
+- You'll need a text editor like [**Visual studio Code**](https://code.visualstudio.com/download)
 - That's all ! 
 
 ## Setup 
@@ -38,10 +42,10 @@ Open your [**terminal**](https://doc.ubuntu-fr.org/terminal) and run this comman
 
 | Method         | Command                                                                                           |
 |:---------------|:--------------------------------------------------------------------------------------------------|
-| **git clone**  | `git clone https://github.com/schwiG5/API_SERVICE_WEB`                                              | 
+| **git clone**  | `git clone https://github.com/schwiG5/API_SERVICE_WEB`                                            | 
 
 
-After, at the end of the code, you need to change the Token of the bot and put yours :
+After, at the end of the code, you need to change the Token of the files and put yours :
 
 ```py
 client.run("Your_token_bot")
@@ -59,8 +63,25 @@ To know all the commands of the bot write **!commands** or **!help** in any chan
 
 **Enjoy 🎉**
 
+## Cryptocurrency 
+
+To display the differents currency you'll need to do a few things.
+
+Each Crytpo can be display in a different channel, you just need to put your channel id instead.
+
+```py
+channel = client.get_channel(channel_id)
+```
+For that your discord must be in developper mode. 
+
+To turn it on go on :  **Discord > settings > Advanced > Developper Mode**
 
 # Contact US 
+
+| Join our discord to try the commands      |
+|:------------------------------------------|
+|https://discord.gg/H5T8UEBjRr              |
+
 
 ## Contributors
 
