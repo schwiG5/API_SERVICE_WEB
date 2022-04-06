@@ -18,7 +18,7 @@ Hello guys so we are french students and we made a discord bot.
 If you have any questions, or if there are mistakes, please let us know.
 Our contacts are down bellow.
 
-So we have to codes, the first one is tothemoon with all the mains functions and 2tothemoon with all the subfunctions
+So we have two codes, the first one is tothemoon with all the mains functions and 2tothemoon with all the subfunctions
 
 ## The Bot 
 
@@ -72,9 +72,12 @@ Each Crytpo can be display in a different channel, you just need to put your cha
 ```py
 channel = client.get_channel(channel_id)
 ```
-For that your discord must be in developper mode. 
+
+To find your channel id your discord must be in developper mode. 
 
 To turn it on go on :  **Discord > settings > Advanced > Developper Mode**
+
+Then right click on the channel and at the bottom you'll see `id copy`
 
 # Contact US 
 
