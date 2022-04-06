@@ -10,12 +10,35 @@ from pycoingecko import CoinGeckoAPI
 
 client = discord.Client()
 cg = CoinGeckoAPI()
-client = commands.Bot(command_prefix = "!")
+intents = discord.Intents.all()
+client = commands.Bot(command_prefix = "!", intents = intents)
 
 @client.event
 async def on_ready():
     print('Logged in as {0.user}'.format(client))
     await btc_auto_msg()
+
+#<-- AUTOROLE COMMAND -->
+
+role = "🤖 | BOT TESTEUR" # Auto role
+@client.event
+async def on_member_join(member): 
+    channel = discord.utils.get(member.guild.channels, name="welcome")
+    embedVar = discord.Embed(title="ON DIT QUOI AUX NOUVEAUX ?", description = f"**Ta mère la pute** {member.mention}", color=0xcf00fc)
+    await channel.send(embed=embedVar)
+    rank = discord.utils.get(member.guild.roles, name=role) 
+    await member.add_roles(rank)
+    print(f"{member} was given the {rank} role.")
+
+#<-- liste admin boss -->
+def mcfly(ctx):
+    return ctx.author.id == 314779425293991938
+
+@client.command()
+@commands.check(mcfly)
+async def clear(ctx):
+    await ctx.channel.purge()
+
 
 
 def getPrice(cryptoId, moneyId):
@@ -187,14 +210,21 @@ async def on_message(message):
         embedVar.add_field(name="Test", value="\u200B", inline=False)
         await message.channel.send(embed=embedVar)
 
-    #<-- Commandes clear --> 
+    if message.content.startswith(('!cafe', '!caffé', '!coffee', '!café')):
+        embedVar = discord.Embed(title="PAUSE CAFÉ ☕", description="\u200B", color=0xcf00ff)
+        embedVar.set_footer(text="© ESILV")
+        embedVar.set_image(url="https://i.pinimg.com/originals/7d/f0/fb/7df0fb965ead9905d077fd21b6c03d35.gif")
 
-    if message.content.startswith('!clear'):
-        await message.channel.purge()
-    
-    if message.content.startswith('!avatar'):
-        member = discord.Member
-        await message.channel.send('{}'.format(member.avatar_url))
+        await message.channel.send(embed=embedVar)
+
+    #<-- Commande Clope -->
+
+    if message.content.startswith(('!clope')):
+        embedVar = discord.Embed(title="PAUSE CLOPE 🚬", description="\u200B", color=0xcf00ff)
+        embedVar.set_footer(text="© ESILV")
+        embedVar.set_image(url="https://c.tenor.com/r5EcuY23bnYAAAAC/thomas-shelby-smoking.gif")
+
+        await message.channel.send(embed=embedVar)
 
     #<-- Foxy the fox command reporté -->
 
@@ -288,7 +318,4 @@ async def on_message(message):
             await message.channel.send(embed=embedVar)
 
 
-
-
-client.run("fuck")
-
+client.run("YOUR TOKEN")
