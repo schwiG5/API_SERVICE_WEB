@@ -1,5 +1,5 @@
 <img src="https://cdn.discordapp.com/attachments/715943284215775263/959416835885903902/e426702edf874b181aced1e2fa5c6cde.gif"/>
-<img style="width: 50%;"src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Logo_esilv_png_blanc.png">
+<img style="width: 60%;"src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Logo_esilv_png_blanc.png">
 
 ## Table of Contents
 
