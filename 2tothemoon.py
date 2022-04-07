@@ -18,20 +18,36 @@ async def clear(ctx, amount: int):
     await ctx.channel.purge(limit=amount+1)
 
 @client.command()
+async def avatar(ctx, member: discord.Member):
+    show_avatar = discord.Embed(
+
+        color = discord.Color.dark_blue()
+    )
+    show_avatar.set_image(url='{}'.format(member.avatar_url))
+    await ctx.send(embed=show_avatar)
+    
+
+@client.command()
 async def dealer(ctx, *dealer):
     dealer = " ".join(dealer)
     if dealer == "":
-        await ctx.send("what do you need ? `10b`, `50b`, `100b`, `plaquette`")
+        embedVar = discord.Embed(title="T'a besoin de quoi fréro ? un `10b`, un `50b`, un `100b`, ou toute la `plaquette`", description="", color=0xcf00ff)
+        await ctx.send(embed=embedVar)
     elif dealer =="10b":
-        await ctx.send(f"{ctx.author.name} P'tit joueur")
+        embedVar = discord.Embed(title=f"{ctx.author.name} t'es un p'tit joueur toi", description="", color=0xcf00ff)
+        await ctx.send(embed=embedVar)
     elif dealer =="50b":
-        await ctx.send(f"{ctx.author.name} ah ouais t'écoutes Laylow toi")
+        embedVar = discord.Embed(title=f"{ctx.author.name} ah ouais t'écoutes Laylow toi", description="", color=0xcf00ff)
+        await ctx.send(embed=embedVar)
     elif dealer =="100b":
-        await ctx.send(f"{ctx.author.name} encore ian qui pech")
+        embedVar = discord.Embed(title=f"{ctx.author.name} encore ian qui pech", description="", color=0xcf00ff)
+        await ctx.send(embed=embedVar)
     elif dealer =="plaquette":
-        await ctx.send(f"{ctx.author.name} Vasi prend fait partir")
+        embedVar = discord.Embed(title=f"{ctx.author.name} Vasi prend fait partir", description="", color=0xcf00ff)
+        await ctx.send(embed=embedVar)
     else:
-        await ctx.send("J'ai pas ce qu'il te faut narvalo")
+        embedVar = discord.Embed(title="J'ai pas ce qu'il te faut narvalo", description="", color=0xcf00ff)
+        await ctx.send(embed=embedVar)
 
 @client.command(aliases=['8ball', '8b'])
 async def _8ball(ctx):

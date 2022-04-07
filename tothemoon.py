@@ -76,11 +76,11 @@ def parsePriceJson(priceJson, money):
 
 async def btc_auto_msg(): 
     for loop in range(0, 100):
-        embedVar = discord.Embed(title="LE cours du Bitcoin", description="\u200B", color=0xcf00fc)
+        embedVar = discord.Embed(title="Le cours du Bitcoin", description="\u200B", color=0xcf00fc)
         embedVar.set_thumbnail(url="https://bitcoin.org/img/icons/opengraph.png?1648318071")
         embedVar.add_field(name="BTC "+ parsePriceJson(getPrice('bitcoin', 'usd'), 'usd'),value="\u200B", inline=False)
             
-        embedVar.set_footer(text="© Poutine | ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         while True:
             await asyncio.sleep(3600)
 
@@ -90,11 +90,11 @@ async def btc_auto_msg():
 
             break
         
-        embedVar = discord.Embed(title="LE cours de l'Ethereum", description="\u200B", color=0xcf00fc)
+        embedVar = discord.Embed(title="Le cours de l'Ethereum", description="\u200B", color=0xcf00fc)
         embedVar.set_thumbnail(url="https://images.youngplatform.com/coins/eth_light.png")
         embedVar.add_field(name="ETH "+ parsePriceJson(getPrice('ethereum', 'usd'), 'usd'),value="\u200B", inline=False)
             
-        embedVar.set_footer(text="© Poutine | ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         while True:
             await asyncio.sleep(0)
 
@@ -104,11 +104,11 @@ async def btc_auto_msg():
 
             break
 
-        embedVar = discord.Embed(title="LE cours du Litecoin", description="\u200B", color=0xcf00fc)
+        embedVar = discord.Embed(title="Le cours du Litecoin", description="\u200B", color=0xcf00fc)
         embedVar.set_thumbnail(url="https://static.comparerbitcoin.fr/wp-content/uploads/cours-du-litecoin.png")
         embedVar.add_field(name="LTC "+ parsePriceJson(getPrice('litecoin', 'usd'), 'usd'),value="\u200B", inline=False)
             
-        embedVar.set_footer(text="© Poutine | ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         while True:
             await asyncio.sleep(0)
 
@@ -118,11 +118,11 @@ async def btc_auto_msg():
 
             break
 
-        embedVar = discord.Embed(title="LE cours du Dogecoin", description="\u200B", color=0xcf00fc)
+        embedVar = discord.Embed(title="Le cours du Dogecoin", description="\u200B", color=0xcf00fc)
         embedVar.set_thumbnail(url="https://s2.coinmarketcap.com/static/img/coins/200x200/74.png")
         embedVar.add_field(name="Ð"+ parsePriceJson(getPrice('dogecoin', 'usd'), 'usd'),value="\u200B", inline=False)
             
-        embedVar.set_footer(text="© Poutine | ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         while True:
             await asyncio.sleep(0)
 
@@ -132,11 +132,11 @@ async def btc_auto_msg():
 
             break
 
-        embedVar = discord.Embed(title="LE cours du Cardano", description="\u200B", color=0xcf00fc)
+        embedVar = discord.Embed(title="Le cours du Cardano", description="\u200B", color=0xcf00fc)
         embedVar.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/c/c0/Cardano_Logo.jpg")
         embedVar.add_field(name="ADA"+ parsePriceJson(getPrice('cardano', 'usd'), 'usd'),value="\u200B", inline=False)
             
-        embedVar.set_footer(text="© Poutine | ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         while True:
             await asyncio.sleep(0)
 
@@ -146,11 +146,11 @@ async def btc_auto_msg():
 
             break
 
-        embedVar = discord.Embed(title="LE cours du Solana", description="\u200B", color=0xcf00fc)
+        embedVar = discord.Embed(title="Le cours du Solana", description="\u200B", color=0xcf00fc)
         embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
         embedVar.add_field(name="SOL " + parsePriceJson(getPrice('solana', 'usd'), 'usd'),value ="\u200B", inline=False)
             
-        embedVar.set_footer(text="© Poutine | ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         while True:
             await asyncio.sleep(0)
 
@@ -170,7 +170,7 @@ async def on_message(message):
         embedVar = discord.Embed(title="LISTE DES CRYPTOS DISPONIBLES", description="\u200B", color=0xcf00ff)
         embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
         embedVar.add_field(name="Bitcoin\n\nEthereum\n\nLitecoin\n\nDogecoin\n\nbitcoin-cash\n\nCardano\n\nmatic-network\n\ndecentraland\n\nGala\n\nmobox\n\navalanche-2\n\npolkadot\n\nSolana (Investi pas Ian)\n\nterra-luna", value="\u200B", inline=False)
-        embedVar.set_footer(text="© McFly | ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
 
         await message.channel.send(embed=embedVar)
 
@@ -179,7 +179,7 @@ async def on_message(message):
         embedVar = discord.Embed(title="LISTE DES MONNAIES DISPONIBLES", description="\u200B", color=0xcf00ff)
         embedVar.set_thumbnail(url="https://cdn.discordapp.com/avatars/953040690701553715/2db7d5e5789f7586632ad4a762de345e.webp?size=128")
         embedVar.add_field(name="$ US Dollars > usd\n\n₹ Indian Rupees > inr\n\n€ Euro > eur\n\n£ British Pound > gbp\n\n¥ Japanese Yen > jpy\n\nC$ Canadian Dollar > cad\n\nA$ Australian Dollar > aud", value="\u200B", inline=False)
-        embedVar.set_footer(text="© McFly | ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
 
         await message.channel.send(embed=embedVar)
 
@@ -212,7 +212,7 @@ async def on_message(message):
 
     if message.content.startswith(('!cafe', '!caffé', '!coffee', '!café')):
         embedVar = discord.Embed(title="PAUSE CAFÉ ☕", description="\u200B", color=0xcf00ff)
-        embedVar.set_footer(text="© ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         embedVar.set_image(url="https://i.pinimg.com/originals/7d/f0/fb/7df0fb965ead9905d077fd21b6c03d35.gif")
 
         await message.channel.send(embed=embedVar)
@@ -221,7 +221,7 @@ async def on_message(message):
 
     if message.content.startswith(('!clope')):
         embedVar = discord.Embed(title="PAUSE CLOPE 🚬", description="\u200B", color=0xcf00ff)
-        embedVar.set_footer(text="© ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         embedVar.set_image(url="https://c.tenor.com/r5EcuY23bnYAAAAC/thomas-shelby-smoking.gif")
 
         await message.channel.send(embed=embedVar)
@@ -234,7 +234,7 @@ async def on_message(message):
         embedVar.add_field(name="Ce bot renard à pour objectif d'être un bot educatif !\nL'objectif est de pouvoir suivre le cours des différentes crypto en s'amusant! \n ", value="\u200B", inline=False)
         embedVar.add_field(name="Pour voir les différentes cryptos :\n`!crypto` ou `!coin`", value="\u200B", inline=False)
         embedVar.add_field(name="Pour finir une petite image aléatoire de renard :\n", value="\u200B", inline=False)
-        embedVar.set_footer(text="© McFly | El CHe | ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         response = requests.get("http://randomfox.ca/floof")
         print(response.json())
         fox = response.json()
@@ -268,7 +268,7 @@ async def on_message(message):
 
     if message.content.startswith(('!coucou')):
         embedVar = discord.Embed(title="Ta gueule ", description="\u200B", color=0xcf00ff)
-        embedVar.set_footer(text="© ESILV")
+        embedVar.set_footer(text="© Les bras cassés | ESILV")
         embedVar.set_image(url="https://i.imgflip.com/9ehk.jpg")
 
         await message.channel.send(embed=embedVar)
@@ -290,31 +290,31 @@ async def on_message(message):
             guess = await client.wait_for('message', check=check, timeout=9.0)
         except asyncio.TimeoutError:
             embedVar = discord.Embed(title="Trop lente ", description="\u200B", color=0xcf00ff)
-            embedVar.set_footer(text="© JM | ESILV")
+            embedVar.set_footer(text="© Les bras cassés | ESILV")
             return await message.channel.send(embed=embedVar)
         if  int(guess.content) == '33':
             embedVar = discord.Embed(title="T'es un petit shinobi toi ", description="\u200B", color=0xcf00ff)
-            embedVar.set_footer(text="© JM | ESILV")
+            embedVar.set_footer(text="© Les bras cassés | ESILV")
             await message.channel.send(embed=embedVar)
         if int(guess.id) == 34:
             embedVar = discord.Embed(title="Bankaiiiii !!", description="\u200B", color=0xcf00ff)
-            embedVar.set_footer(text="© JM | ESILV")
+            embedVar.set_footer(text="© Les bras cassés | ESILV")
             await message.channel.send(embed=embedVar)
         if int(guess.id) == 35:
             embedVar = discord.Embed(title="ah oe genre le pouvoir de l'amitié ", description="\u200B", color=0xcf00ff)
-            embedVar.set_footer(text="© JM | ESILV")
+            embedVar.set_footer(text="© Les bras cassés | ESILV")
             await message.channel.send(embed=embedVar)
         if int(guess.id) == 36:
             embedVar = discord.Embed(title="Rien à dire, t'es un V2V ", description="\u200B", color=0xcf00ff)
-            embedVar.set_footer(text="© JM | ESILV")
+            embedVar.set_footer(text="© Les bras cassés | ESILV")
             await message.channel.send(embed=embedVar)
         if int(guess.content) == answer:
             embedVar = discord.Embed(title="Bien joué ", description="\u200B", color=0xcf00ff)
-            embedVar.set_footer(text="© JM | ESILV")
+            embedVar.set_footer(text="© Les bras cassés | ESILV")
             await message.channel.send(embed=embedVar)
         else:
             embedVar = discord.Embed(title="Mauvaise reponse ma belle", description="\u200B", color=0xcf00ff)
-            embedVar.set_footer(text="© JM | ESILV")
+            embedVar.set_footer(text="© Les bras cassés | ESILV")
             await message.channel.send(embed=embedVar)
 
 
